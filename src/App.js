@@ -7,14 +7,17 @@ function App() {
   const [data, setData] = useState({ title: "", url: "" });
   useEffect(() => {
     const queryInfo = { active: true, lastFocusedWindow: true };
-    chrome.tabs &&
-      chrome.tabs.query(queryInfo, (tabs) => {
-        const url = tabs[0].url;
-        const title = tabs[0].title;
-        setData({ url, title });
-      });
+    chrome.tabs.query(queryInfo, (tabs) => {
+      const url = tabs[0].url;
+      const title = tabs[0].title;
+      setData({ url, title });
+    });
   }, []);
 
+  const clickHandler = () => {
+    chrome.storage.sync.set({ "data": data });
+    eject();
+  };
   return (
     <div className="App">
       <div className="title">
@@ -29,7 +32,7 @@ function App() {
         <h2>URL:</h2>
         <span>{data.url}</span>
       </div>
-      <button onClick={eject} className="btn">
+      <button onClick={clickHandler} className="btn">
         Eject
       </button>
     </div>

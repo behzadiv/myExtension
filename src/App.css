@@ -31,3 +31,10 @@
 .btn:hover {
   border: 2px solid rgba(212, 207, 207, 0.824);
 }
+.myDiv {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee;
+  text-align: center;
+}

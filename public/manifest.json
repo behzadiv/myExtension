@@ -3,11 +3,8 @@
   "name": "Get site data",
   "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": ["scripting"],
-  "host_permissions": [
-    "http://*/",
-    "https://*/"
-  ],
+  "permissions": ["scripting","storage"],
+  "host_permissions": ["http://*/", "https://*/"],
   "action": {
     "default_popup": "index.html"
   }
